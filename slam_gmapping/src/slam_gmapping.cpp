@@ -614,7 +614,7 @@ int main(int argc, char* argv[]) try
         const auto ec = slam_gmapping_node->init();
         if (ec)
         {
-            RCLCPP_ERROR(logger, "%s / %s / %s", ec.category().name(), ec.value(), ec.message());
+            RCLCPP_ERROR(logger, "%s / %d / %s", ec.category().name(), ec.value(), ec.message().c_str());
             return -1;
         }
     }
@@ -622,7 +622,7 @@ int main(int argc, char* argv[]) try
         const auto ec = slam_gmapping_node->startLiveSlam();
         if (ec)
         {
-            RCLCPP_ERROR(logger, "%s / %s / %s", ec.category().name(), ec.value(), ec.message());
+            RCLCPP_ERROR(logger, "%s / %d / %s", ec.category().name(), ec.value(), ec.message().c_str());
             return -1;
         }
     }
